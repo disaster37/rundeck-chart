@@ -31,14 +31,14 @@ jobs:
           python-version: 3.7
       
       - name: Lint chart
-        run: helm lint .
+        run: helm lint
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.2.0
 
       - name: Install chart
         run: |
-          helm install . -n default
+          helm install rundeck . -n rundeck
 
   publish-pr:
     needs: [lint-test]

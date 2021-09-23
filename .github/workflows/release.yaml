@@ -53,10 +53,10 @@ jobs:
           #!/bin/sh
           sed -iE 's/version:(.*)/version: \1-pr{{ github.event.issue.id }}/g' Chart.yaml
         
-      - uses: goodsmileduck/helm-push-action@v3
+      - uses: goodsmileduck/helm-push-action@v3.3.1
         env:
-          SOURCE_DIR: 'rundeck'
-          CHART_FOLDER: '.'
+          SOURCE_DIR: '.'
+          CHART_FOLDER: 'rundeck'
           FORCE: 'True'
           CHARTMUSEUM_URL: 'https://charts.webcenter.fr'
           CHARTMUSEUM_USER: '${{ secrets.CHARTMUSEUM_USER }}'
@@ -70,10 +70,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           path: rundeck
-      - uses: goodsmileduck/helm-push-action@v3
+      - uses: goodsmileduck/helm-push-action@v3.3.1
         env:
-          SOURCE_DIR: 'rundeck'
-          CHART_FOLDER: '.'
+          SOURCE_DIR: '.'
+          CHART_FOLDER: 'rundeck'
           FORCE: 'True'
           CHARTMUSEUM_URL: 'https://charts.webcenter.fr'
           CHARTMUSEUM_USER: '${{ secrets.CHARTMUSEUM_USER }}'

@@ -1,0 +1,15 @@
+apiVersion: v1
+description: A Rundeck chart for Kubernetes
+name: rundeck
+home: https://github.com/disaster37/rundeck-chart
+version: 3.4.4
+appVersion: 3.4.4
+keywords:
+- rundeck
+- jobs
+- automation
+- operations
+sources:
+- https://github.com/rundeck/rundeck
+maintainers:
+- name: disaster37

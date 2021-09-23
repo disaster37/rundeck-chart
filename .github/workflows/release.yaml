@@ -45,6 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event.issue.pull_request != null)
     steps:
+      - uses: actions/checkout@v2
       - name: Update chart version
         run: |
           #!/bin/sh
@@ -64,11 +65,12 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
     steps:
+      - uses: actions/checkout@v2
       - uses: goodsmileduck/helm-push-action@v2
         env:
           SOURCE_DIR: '.'
           CHART_FOLDER: '.'
-          FORCE: 'False'
+          FORCE: 'True'
           CHARTMUSEUM_URL: 'https://charts.webcenter.fr'
           CHARTMUSEUM_USER: '${{ secrets.CHARTMUSEUM_USER }}'
           CHARTMUSEUM_PASSWORD: ${{ secrets.CHARTMUSEUM_PASSWORD }}

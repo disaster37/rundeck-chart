@@ -51,7 +51,7 @@ jobs:
       - name: Run chart-testing (install)
         run: ct install
 
-  publish PR:
+  publish-pr:
     needs: [lint-test]
     runs-on: ubuntu-latest
     if: (github.event.issue.pull_request != null)

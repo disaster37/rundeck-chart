@@ -38,7 +38,7 @@ jobs:
 
       - name: Install chart
         run: |
-          helm install rundeck . -n rundeck
+          helm install rundeck . -n rundeck --create-namespace 
 
   publish-pr:
     needs: [lint-test]

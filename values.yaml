@@ -4,7 +4,7 @@
 
 image:
   repository: rundeck/rundeck
-  tag: 3.4.9
+  tag: 4.2.1
   pullPolicy: IfNotPresent
 
 deployment:

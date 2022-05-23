@@ -51,7 +51,7 @@ jobs:
       - name: Update chart version
         run: |
           #!/bin/sh
-          sed -iE 's/version:(.*)/version: \1-pr{{ github.event.issue.id }}/g' Chart.yaml
+          sed -iE 's/version:(.*)/version: \1-pr{{ github.event.issue.id }}/g' rundeck/Chart.yaml
         
       - uses: goodsmileduck/helm-push-action@v3.3.1
         env:

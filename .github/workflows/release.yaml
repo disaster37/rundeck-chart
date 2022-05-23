@@ -5,9 +5,9 @@ on:
       - main
     tags:
       - '*'
-    pull_request:
-      branches:
-        - main
+  pull_request:
+    branches:
+      - main
   
 
 jobs:
@@ -43,7 +43,7 @@ jobs:
   publish-pr:
     needs: [lint-test]
     runs-on: ubuntu-latest
-    if: (github.event.issue.pull_request != null)
+    if: (github.event_name == 'pull_request')
     steps:
       - uses: actions/checkout@v2
         with:
@@ -51,7 +51,7 @@ jobs:
       - name: Update chart version
         run: |
           #!/bin/sh
-          sed -iE 's/version:(.*)/version: \1-pr{{ github.event.issue.id }}/g' rundeck/Chart.yaml
+          sed -i -E 's/version:(.*)/version: \1-pr${{ github.event.pull_request.number }}/g' rundeck/Chart.yaml
         
       - uses: goodsmileduck/helm-push-action@v3.3.1
         env:

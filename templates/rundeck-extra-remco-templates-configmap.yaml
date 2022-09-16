@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Release.Name }}-extra-remco-templates
+  name: {{ include "rundeck.fullname" . }}-extra-remco-templates
   labels: {{ include "rundeck.labels" . | indent 4 }}
 data:
 {{- range $path, $config := .Values.rundeck.extraRemcoTemplates }}

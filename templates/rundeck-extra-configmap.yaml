@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.rundeck.extraConfigName }}
+  name: {{ include "rundeck.fullname" . }}-{{ .Values.rundeck.extraConfigName }}
   labels: {{ include "rundeck.labels" . | indent 4 }}
 data:
 {{- range $name, $config := .Values.rundeck.extraConfigMap }}

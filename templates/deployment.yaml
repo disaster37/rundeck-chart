@@ -93,7 +93,7 @@ spec:
           - name: data
             mountPath: /home/rundeck/server/data
           - name: log
-            mountPath: /home/rundeck/var/logs/rundeck
+            mountPath: /home/rundeck/var/logs
         {{- if .Values.rundeck.sshSecrets }}
           - name: sshkeys
             mountPath: /home/rundeck/.ssh

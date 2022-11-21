@@ -4,7 +4,7 @@
 
 image:
   repository: rundeck/rundeck
-  tag: 4.2.1
+  tag: 4.7.0
   pullPolicy: IfNotPresent
 
 deployment:
@@ -21,6 +21,8 @@ rundeck:
     RUNDECK_GRAILS_URL: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local"
     RUNDECK_SERVER_FORWARDED: "true"
     RUNDECK_LOGGING_STRATEGY: "CONSOLE"
+    # JAVA_OPTS="-Xms512M -Xmx1G"
+    # TZ = "Europe/Paris"
     # RUNDECK_DATABASE_DRIVER: com.mysql.jdbc.Driver
     # RUNDECK_DATABASE_USERNAME: rundeck
     # RUNDECK_DATABASE_PASSWORD: rundeck

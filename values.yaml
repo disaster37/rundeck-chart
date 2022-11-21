@@ -81,11 +81,25 @@ persistence:
   enabled: false
   # Set existingClaim to the name of an existing PVC to reuse a volume managed outside this helm chart
   # existingClaim:
+
+  # Set existingClaimLog to the name of an existing PVC to reuse a volume managed outside this helm chart
+  # existingClaimLog:
+
   # If deployed on AWS you can optionally specify an existing EBS volume by ID
   # awsVolumeId:
 
+  # If deployed on AWS you can optionally specify an existing EBS volume by ID
+  # awsVolumeIdLog:
+
   # Set claim.create:true  to have the helm chart manage the creation of a new PVC for this deployment
   claim:
+    create: false
+    # storageClass:
+    # accessMode: ReadWriteOnce
+    # size: 10G
+  
+  # Set claimLog.create:true  to have the helm chart manage the creation of a new PVC for this deployment dedicated to store rudeck log (job executions)
+  claimLog:
     create: false
     # storageClass:
     # accessMode: ReadWriteOnce

@@ -87,10 +87,10 @@ spec:
               value: {{ .Values.rundeck.env.RUNDECK_GRAILS_URL }}
             - name: RUNDECK_SERVER_FORWARDED
               value: "true"
-          {{- if and .Values.persistence.enabled .Values.persistence.claimLog.create -}}
+          {{- if and .Values.persistence.enabled .Values.persistence.claimLog.create }}
             - name: RUNDECK_LOGGING_STRATEGY
               value: "FILE"
-          {{- else -}}
+          {{- else }}
             - name: RUNDECK_LOGGING_STRATEGY
               value: "CONSOLE"
           {{- end }}

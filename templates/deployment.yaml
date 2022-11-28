@@ -87,13 +87,22 @@ spec:
               value: {{ .Values.rundeck.env.RUNDECK_GRAILS_URL }}
             - name: RUNDECK_SERVER_FORWARDED
               value: "true"
+          {{- if and .Values.persistence.enabled .Values.persistence.clainLog.create-}}
+            - name: RUNDECK_LOGGING_STRATEGY
+              value: "FILE"
+          {{- else -}}
             - name: RUNDECK_LOGGING_STRATEGY
               value: "CONSOLE"
+          {{ -end }}
           volumeMounts:
           - name: data
             mountPath: /home/rundeck/server/data
           - name: log
             mountPath: /home/rundeck/var/logs
+            subPath: project
+          - name: log
+            mountPath: /home/rundeck/server/logs
+            subPath: server
         {{- if .Values.rundeck.sshSecrets }}
           - name: sshkeys
             mountPath: /home/rundeck/.ssh

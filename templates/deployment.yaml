@@ -93,7 +93,7 @@ spec:
           {{- else -}}
             - name: RUNDECK_LOGGING_STRATEGY
               value: "CONSOLE"
-          {{ -end }}
+          {{- end }}
           volumeMounts:
           - name: data
             mountPath: /home/rundeck/server/data

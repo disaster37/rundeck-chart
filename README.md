@@ -5,7 +5,7 @@ Rundeck lets you turn your operations procedures into self-service jobs. Safely 
 
 ## Install
 
-    helm repo add rundeck https://charts.webcenter.fr
+    helm repo add rundeck oci://ghcr.io/disaster37/rundeck-chart
     helm install rundeck/rundeck
 
 ## Configuration

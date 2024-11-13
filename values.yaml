@@ -4,12 +4,13 @@
 
 image:
   repository: rundeck/rundeck
-  tag: 4.7.0
+  tag: 5.7.0
   pullPolicy: IfNotPresent
 
 deployment:
   replicaCount: 1
   annotations: {}
+  terminationGracePeriodSeconds: 120
   strategy:
     type: RollingUpdate
     # Recreate can help when using persistent volumes
